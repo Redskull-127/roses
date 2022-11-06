@@ -56,7 +56,7 @@ export default function Home() {
             </div>
           ) : song.length > 0 && song != null ? (
             <div className={styles.grid}>
-              <a href="https://meertarbani.dev" className={styles.card}>
+              <a href={song[random].track.uri} className={styles.card}>
                 <h2>NOW PLAYING &rarr;</h2>
                 <div style={{ display: "flex" }}>
                   <img
@@ -65,7 +65,7 @@ export default function Home() {
                     alt=""
                   />
                   <a
-                    href={song[random].track.uri}
+                    
                     target="_blank"
                     style={{ marginLeft: "20px" }}
                     rel="noreferrer"
