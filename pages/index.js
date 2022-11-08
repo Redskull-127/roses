@@ -94,7 +94,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Developed by Meer Tarbani
+            Developed by Maharshi Jha
           </a>
         </footer>
       </div>
