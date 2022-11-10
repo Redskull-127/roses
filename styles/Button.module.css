@@ -1,0 +1,17 @@
+.card{
+    width: 170px;
+    height: 60px;
+    border-radius: 14px;
+    border: 1px solid #f30051;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 25px;
+    user-select: none;
+}
+
+.card:active{
+    /* box-shadow: 0 0 10px #f30051; */
+    background-color: #f30051;
+}

@@ -1,14 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import Image from "next/image";
+import Script from "next/script";
 import styles from "../styles/Home.module.css";
+import playBarStyles from "../styles/Playbar.module.css";
 import Button from "../Components/button";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Howl, Howler } from 'howler';
+import PlayBar from "../Components/playBar";
+
+
 
 export default function Home() {
   const [clickRef, setClickRef] = useState(false);
   const [song, setSong] = useState([]);
-  const [random, setRandom] = useState(0);
+  const [random, setRandom] = useState();
+  const [playing, setPlaying] = useState(false);
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
 
   function handleRefClick(e) {
     //setstate snippet
@@ -33,7 +44,7 @@ export default function Home() {
           <meta name="description" content="Meer's Playlist bruh!" />
           <link rel="icon" href="https://img.icons8.com/cute-clipart/64/null/rose.png" />
         </Head>
-
+        <Script src="https://kit.fontawesome.com/b601b88d20.js" crossOrigin="anonymous"></Script>
         <main className={styles.main}>
           <h1 className={styles.title}>
             Cause she don&apos;t like{" "}
@@ -44,7 +55,7 @@ export default function Home() {
             Start listening by clicking below button!
           </p>
 
-          {clickRef == false ? (
+          {/* {clickRef == false ? (
             <div
               onClick={(e) => {
                 handleRefClick();
@@ -55,26 +66,8 @@ export default function Home() {
               <Button />
             </div>
           ) : song.length > 0 && song != null ? (
+
             <div className={styles.grid}>
-              <a href={song[random].track.uri} className={styles.card}>
-                <h2>NOW PLAYING &rarr;</h2>
-                <div style={{ display: "flex" }}>
-                  <img
-                    src={song[random].track.album.images[2].url}
-                    height={135}
-                    alt=""
-                  />
-                  <a
-                    
-                    target="_blank"
-                    style={{ marginLeft: "20px" }}
-                    rel="noreferrer"
-                  >
-                    <h2>{song[random].track.name}</h2> <br /> by{" "}
-                    {song[random].track.album.artists[0].name}
-                  </a>
-                </div>
-              </a>
               <a className={styles.card}>
                 <div
                   onClick={() => {
@@ -85,18 +78,29 @@ export default function Home() {
                 </div>
               </a>
             </div>
-          ) : null}
+          ) : null} */}
+          {song.length > 0 && song != null ?
+            (<div onClick={() => {
+              setClickRef(true);
+              setRandom(Math.floor(Math.random() * song.length));
+            }}>
+              <Button />
+            </div>) : null}
         </main>
 
-        <footer className={styles.footer}>
-          <a
-            href="https://meertarbani.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Developed by Meer Tarbani
-          </a>
-        </footer>
+      </div>
+      <div className={playBarStyles.container}>
+        <div className={playBarStyles.playbar}>
+          {clickRef == false ? (
+            <div style={{width: 100 + '%'}}>
+            <h1 style={{textAlign: 'center'}}>Nothing to play</h1>
+            </div>
+          ) : song.length > 0 && song != null ? (
+            <>
+              <PlayBar song={{ ...song[random] }} />
+            </>
+          ) : null}
+        </div>
       </div>
     </>
   );
