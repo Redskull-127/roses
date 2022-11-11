@@ -8,8 +8,7 @@ import Button from "../Components/button";
 import { useEffect, useRef, useState } from "react";
 import { Howl, Howler } from 'howler';
 import PlayBar from "../Components/playBar";
-import Marquee from "react-fast-marquee";
-
+import preloader from "../styles/Preloader.module.css";
 
 export default function Home() {
   const [clickRef, setClickRef] = useState(false);
@@ -47,6 +46,9 @@ export default function Home() {
 
   return (
     <>
+    <div id={`preloader`} className={preloader.preloader}>
+          <h1>Please wait</h1>
+        </div>
       <div className={styles.container}>
         <Head>
           <title>R O S E S</title>
@@ -54,6 +56,7 @@ export default function Home() {
           <link rel="icon" href="https://img.icons8.com/cute-clipart/64/null/rose.png" />
         </Head>
         <Script src="https://kit.fontawesome.com/b601b88d20.js" crossOrigin="anonymous"></Script>
+        
         <main className={styles.main}>
           <h1 className={styles.title}>
             Cause she don&apos;t like{" "}

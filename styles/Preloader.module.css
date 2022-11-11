@@ -1,0 +1,17 @@
+.preloader{
+    position: absolute;
+    z-index: 111;
+    min-width: 100vh;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader h1{
+    color: black;
+    font-size: 5rem;
+}
