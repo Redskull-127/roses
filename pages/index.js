@@ -8,7 +8,7 @@ import Button from "../Components/button";
 import { useEffect, useRef, useState } from "react";
 import { Howl, Howler } from 'howler';
 import PlayBar from "../Components/playBar";
-
+import Marquee from "react-fast-marquee";
 
 
 export default function Home() {
@@ -18,6 +18,15 @@ export default function Home() {
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
+    if(document.getElementById("sammygif")){
+      const gif = document.getElementById("sammygif");
+      console.log("gif.style.animation");
+      // gif.addEventListener('animationstart', (e)=>{
+      //   setInterval(()=>{
+      //     gif.style.transform = "scaleX(-1)";
+      //   }, 2500);
+      // })
+    }
     handleFetch();
   }, []);
 
@@ -50,35 +59,14 @@ export default function Home() {
             Cause she don&apos;t like{" "}
             <a href="https://meertarbani.dev">Roses🌹</a>
           </h1>
-
+          <div className={styles.sammy}>
+            <div id="sammygif" className={styles.sammyGif}> 
+              <img src="sammy.gif" alt="gsif"  />
+            </div>
+          </div>
           <p className={styles.description}>
             Start listening by clicking below button!
           </p>
-
-          {/* {clickRef == false ? (
-            <div
-              onClick={(e) => {
-                handleRefClick();
-                handleFetch();
-              }}
-              className={styles.card}
-            >
-              <Button />
-            </div>
-          ) : song.length > 0 && song != null ? (
-
-            <div className={styles.grid}>
-              <a className={styles.card}>
-                <div
-                  onClick={() => {
-                    setRandom(Math.floor(Math.random() * song.length));
-                  }}
-                >
-                  <Button />
-                </div>
-              </a>
-            </div>
-          ) : null} */}
           {song.length > 0 && song != null ?
             (<div onClick={() => {
               setClickRef(true);

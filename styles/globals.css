@@ -13,6 +13,7 @@ a {
 
 * {
   box-sizing: border-box;
+  --flip: 0;
 }
 
 @media (prefers-color-scheme: dark) {
