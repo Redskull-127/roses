@@ -28,7 +28,7 @@
 }
 
 .sammyGif{
-  animation: 10s infinite sammyGif cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: 15s infinite sammyGif cubic-bezier(0.075, 0.82, 0.165, 1);
   /* transform: scaleX(var(--flip)); */
 }
 
@@ -36,11 +36,17 @@
   0% {
     transform: translateX(0) scaleX(1);
    }
-  50% {
+  40% {
+    transform: translateX(75rem);
+  }
+  45%{
     transform: translateX(85rem) scaleX(-1);
   }
+  80% {
+    transform: translateX(10rem) scaleX(-1);
+  }
   100% {
-    transform: translateX(0rem) scaleX(0);
+    transform: translateX(0rem) scaleX(1);
   }
 }
 
