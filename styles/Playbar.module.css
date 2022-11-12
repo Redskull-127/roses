@@ -25,3 +25,28 @@
 .playbar:hover{
     box-shadow: 0 0 10px #f30051;
 }
+
+.progress {
+    height: 5px;
+    width: 300px;
+    background-color: grey;
+}
+
+.progressBar {
+    display: none;
+    height: 5px;
+    width: 0px;
+    background-color: #f30051;
+    transition: 0.5s;
+    animation: progressAnimation 30s linear;;
+    animation-play-state: paused;
+}
+
+@keyframes progressAnimation {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 300px;
+    }
+}
