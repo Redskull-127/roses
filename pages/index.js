@@ -20,11 +20,7 @@ export default function Home() {
     if(document.getElementById("sammygif")){
       const gif = document.getElementById("sammygif");
       console.log("gif.style.animation");
-      // gif.addEventListener('animationstart', (e)=>{
-      //   setInterval(()=>{
-      //     gif.style.transform = "scaleX(-1)";
-      //   }, 2500);
-      // })
+
     }
     handleFetch();
   }, []);
